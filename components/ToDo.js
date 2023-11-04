@@ -74,6 +74,8 @@ const ToDo = () => {
             .catch(() => {
                 console.error("Error updating AsyncStorage: ", error);
             })
+
+        Alert.alert("Task Deleted")
     }
 
     const editTask = (index) => {
@@ -83,6 +85,7 @@ const ToDo = () => {
             task: todolist[index].task,
             importance: todolist[index].importance,
         })
+
     }
 
     const addTask = async() => {
@@ -112,7 +115,7 @@ const ToDo = () => {
                 setTask("")
                 setImportance("General")
 
-                Alert.alert("Task Successfully Added");
+                Alert.alert("Task Added");
             } catch (error) {
                 console.error("Error in saving task to AsyncStorage: ", error);
                 Alert.alert("Failed to save task");
@@ -140,7 +143,7 @@ const ToDo = () => {
                     setEditTaskIndex(null);
                     setUpdatedTask({ task: "", importance: "General" });
     
-                    Alert.alert("Task Successfully Updated");
+                    Alert.alert("Task Updated");
                 } catch (error) {
                     console.error("Error in updating task in AsyncStorage: ", error);
                     Alert.alert("Failed to update task");
